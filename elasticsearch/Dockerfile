@@ -15,8 +15,7 @@ RUN /elasticsearch/bin/plugin -i mobz/elasticsearch-head && \
 
 ADD ./sqljdbc4.jar /elasticsearch/lib/sqljdbc4.jar
 
-EXPOSE 9200
-EXPOSE 9300
+EXPOSE 9200 9300
 VOLUME ["/data"]
 WORKDIR /data
 ENTRYPOINT ["/elasticsearch/bin/elasticsearch"]
