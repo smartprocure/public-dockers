@@ -1,8 +1,7 @@
 FROM smartprocure/base
 MAINTAINER Marc Melvin <mmelvin@smartprocure.us>
 
-RUN alias adduser='useradd' && \
-    add-apt-repository ppa:chris-lea/redis-server && \
+RUN add-apt-repository ppa:chris-lea/redis-server && \
     apt-get update && \
     apt-get install -y --no-install-recommends redis-server && \
     apt-get clean
