@@ -5,5 +5,8 @@ RUN cd /tmp && \
     wget http://downloads.drone.io/latest/drone.deb && \
     dpkg -i drone.deb
 
+RUN mkdir -p /var/lib/drone/
+
 EXPOSE 8080
-CMD ["droned"]
+ENTRYPOINT ["droned"]
+CMD ["-datasource", "/var/lib/drone/drone.sqlite", "-port", ":8080"]
