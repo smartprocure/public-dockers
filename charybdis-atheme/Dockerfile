@@ -1,7 +1,7 @@
 FROM smartprocure/base
 MAINTAINER Marc Melvin <mmelvin@smartprocure.us>
 
-RUN apt-get install -y --no-install-recommends build-essential bison flex zlib1g-dev openssl libssl-dev pkg-config libperl-dev libpcre3-dev gettext supervisor && \
+RUN apt-get install -y --no-install-recommends bison flex zlib1g-dev openssl libssl-dev pkg-config libperl-dev libpcre3-dev gettext supervisor && \
     apt-get clean
 
 RUN cd /tmp && \
