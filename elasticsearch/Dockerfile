@@ -16,9 +16,9 @@ RUN /elasticsearch/bin/plugin -i elasticsearch/marvel/latest && \
     /elasticsearch/bin/plugin -i jdbc --url http://xbib.org/repository/org/xbib/elasticsearch/plugin/elasticsearch-river-jdbc/1.3.0.4/elasticsearch-river-jdbc-1.3.0.4-plugin.zip
 
 ADD ./sqljdbc4.jar /elasticsearch/lib/sqljdbc4.jar
+ADD tiller /etc/tiller
 
 EXPOSE 9200 9300
-VOLUME ["/data"]
-WORKDIR /data
-ENTRYPOINT ["/elasticsearch/bin/elasticsearch"]
-CMD []
+VOLUME ["/elasticsearch/data"]
+WORKDIR /elasticsearch
+CMD ["/usr/local/bin/tiller", "-v"]

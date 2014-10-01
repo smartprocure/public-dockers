@@ -1,0 +1,6 @@
+exec: /elasticsearch/bin/elasticsearch
+data_sources:
+  - file
+  - environment
+template_sources:
+  - file

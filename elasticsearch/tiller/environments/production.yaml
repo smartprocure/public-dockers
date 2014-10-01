@@ -1,0 +1,3 @@
+elasticsearch.yml.erb:
+  target: /elasticsearch/config/elasticsearch.yml
+  config: {}
