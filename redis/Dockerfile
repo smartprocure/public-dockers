@@ -9,13 +9,14 @@ RUN ln -s -f /bin/true /usr/bin/chfn && \
 
 RUN sed -i 's/^\(bind .*\)$/# \1/' /etc/redis/redis.conf && \
     sed -i 's/^\(daemonize .*\)$/# \1/' /etc/redis/redis.conf && \
-    sed -i 's/^\(dir .*\)$/# \1\ndir \/data/' /etc/redis/redis.conf && \
-    sed -i 's/^\(logfile .*\)$/# \1/' /etc/redis/redis.conf && \
-    mkdir -p /data && \
+#    sed -i 's/^\(dir .*\)$/# \1\ndir \/data/' /etc/redis/redis.conf && \
+#    sed -i 's/^\(logfile .*\)$/# \1/' /etc/redis/redis.conf && \
+#    mkdir -p /data && \
     echo vm.overcommit_memory = 1 >> /etc/sysctl.conf
 
 EXPOSE 6379
-VOLUME ["/data"]
-WORKDIR /data
-ENTRYPOINT ["redis-server"]
-CMD ["/etc/redis/redis.conf"]
+VOLUME ["/var/lib/redis"]
+#VOLUME ["/data"]
+#WORKDIR /data
+#ENTRYPOINT ["redis-server"]
+CMD ["redis-server", "/etc/redis/redis.conf"]
