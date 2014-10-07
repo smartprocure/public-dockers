@@ -20,14 +20,14 @@ function (Settings) {
       influxdb: {
         type: 'influxdb',
         url: "http://{{BASE_HOST}}:{{INFLUXDB_PORT}}/db/{{INFLUXDB_DATABASE_STATS}}",
-        username: 'admin',
-        password: 'admin',
+        username: '{{INFLUXDB_DATABASE_STATS_USERNAME}}',
+        password: '{{INFLUXDB_DATABASE_STATS_PASSWORD}}',
       },
       grafana: {
         type: 'influxdb',
         url: "http://{{BASE_HOST}}:{{INFLUXDB_PORT}}/db/{{INFLUXDB_DATABASE_GRAFANA}}",
-        username: 'admin',
-        password: 'admin',
+        username: '{{INFLUXDB_DATABASE_GRAFANA_USERNAME}}',
+        password: '{{INFLUXDB_DATABASE_GRAFANA_PASSWORD}}',
         grafanaDB: true
       }
     },
