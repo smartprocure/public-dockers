@@ -19,4 +19,5 @@ ADD opt/start.sh /opt/start.sh
 ADD etc/supervisord.conf /etc/supervisord.conf
 
 EXPOSE 8000 8083 8086 8090
+VOLUME ["/opt/influxdb/shared/data"]
 CMD ["/opt/start.sh"]
