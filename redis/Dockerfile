@@ -9,6 +9,7 @@ RUN ln -s -f /bin/true /usr/bin/chfn && \
 
 RUN sed -i 's/^\(bind .*\)$/# \1/' /etc/redis/redis.conf && \
     sed -i 's/^\(daemonize .*\)$/# \1/' /etc/redis/redis.conf && \
+    sed -i 's/^\(stop-writes-on-bgsave-error .*\)$/stop-writes-on-bgsave-error no/' /etc/redis/redis.conf && \
 #    sed -i 's/^\(dir .*\)$/# \1\ndir \/data/' /etc/redis/redis.conf && \
 #    sed -i 's/^\(logfile .*\)$/# \1/' /etc/redis/redis.conf && \
 #    mkdir -p /data && \
