@@ -12,5 +12,4 @@ RUN mkdir -p /data
 EXPOSE 27017
 VOLUME ["/data"]
 WORKDIR /data
-ENTRYPOINT ["/usr/bin/mongod", "--dbpath", "/data"]
-CMD []
+CMD ["/usr/bin/mongod", "--dbpath", "/data", "--replSet", "rs0"]
