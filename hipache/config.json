@@ -1,19 +1,21 @@
 {
     "server": {
         "accessLog": "/var/log/nginx/access.log",
-        "workers": 10,
-        "maxSockets": 100,
+        "workers": 20,
+        "maxSockets": 500,
         "deadBackendTTL": 30,
         "tcpTimeout": 30,
         "retryOnError": 3,
         "deadBackendOn500": true,
-        "httpKeepAlive": false
+        "httpKeepAlive": true
     },
     "https": {
         "port": 443,
         "bind": "0.0.0.0",
         "key": "/etc/ssl/ssl.key",
-        "cert": "/etc/ssl/ssl.crt"
+        "cert": "/etc/ssl/ssl.crt",
+        "ciphers": "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !RC4",
+        "honorCipherOrder": true
     },
     "http": {
         "port": 80,
